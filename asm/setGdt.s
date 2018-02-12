@@ -11,13 +11,13 @@ setGdt:
    mov   %ax, (limit)
    lgdt  (gdtr)
 
-   mov 0x10, %ax      // 0x10 is the offset in the GDT to our data segment
-   mov %ax, %ds
-   mov %ax, %es
-   mov %ax, %fs
-   mov %ax, %gs
-   mov %ax, %ss
-   ljmp $0x08, $flush2   // 0x08 is the offset to our code segment: Far jump!
+   ljmp $0x08, $flush2
 
 flush2:
-   ret               // Returns back to the C code!
+	mov 0x10, %ax
+	mov %ax, %ds
+	mov %ax, %es
+	mov %ax, %fs
+	mov %ax, %gs
+	mov %ax, %ss
+	ret
