@@ -1,10 +1,13 @@
 C++_SRC_NAME = kernel.c++ \
 				Terminal.c++ \
 				Cursor.c++ \
-				TerminalManager.c++
+				TerminalManager.c++ \
+				gdt.c++
+
 C++_OBJ_NAME = $(C++_SRC_NAME:.c++=.o)
 
-ASM_SRC_NAME = boot.s
+ASM_SRC_NAME = boot.s \
+				setGdt.s
 ASM_OBJ_NAME = $(ASM_SRC_NAME:.s=.o)
 
 C++ = i686-elf-g++

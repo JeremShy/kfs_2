@@ -1,6 +1,4 @@
-#include <libk.h>
-#include <inline.h>
-#include <Cursor.h>
+#include <kernel.h>
 
 Cursor::Cursor()
 {

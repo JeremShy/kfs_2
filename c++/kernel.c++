@@ -1,10 +1,11 @@
-#include <libk.h>
+#include <kernel.h>
 #include <stdarg.h>
 
 TerminalManager termManager;
 
 extern "C" void kernel_main(void)
 {
+	load_gdt();
 	putstr_color("Hello, kernel World!\nHow are you ?\n", VGA_COLOR_CYAN);
 
 	while (1)

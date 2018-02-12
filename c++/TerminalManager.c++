@@ -1,5 +1,5 @@
+#include <kernel.h>
 #include <TerminalManager.h>
-#include <libk.h>
 
 TerminalManager::TerminalManager()
 {
