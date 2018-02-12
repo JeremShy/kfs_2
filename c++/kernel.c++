@@ -1,5 +1,6 @@
-#include <kernel.h>
+#include <libk.h>
 #include <stdarg.h>
+#include <descriptor_table.h>
 
 TerminalManager termManager;
 

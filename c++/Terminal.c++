@@ -1,5 +1,5 @@
-#include <kernel.h>
 #include <Terminal.h>
+#include <libk.h>
 
 Terminal::Terminal(void) : _row(0), _column(0), _color(vga_entry_color(VGA_COLOR_LIGHT_GREY, VGA_COLOR_BLACK)), _buffer((uint16_t*) 0xB8000), _cursorUpdate(true), _enabled(false)
 {

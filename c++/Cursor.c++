@@ -1,8 +1,8 @@
-#include <kernel.h>
+#include <Cursor.h>
+#include <libk.h>
 
 Cursor::Cursor()
 {
-
 }
 
 void Cursor::moveCursorTo(int x, int y)

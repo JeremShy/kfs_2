@@ -1,4 +1,4 @@
-#include <kernel.h>
+#include <libk.h>
 #include <TerminalManager.h>
 
 TerminalManager::TerminalManager()

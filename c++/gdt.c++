@@ -1,4 +1,5 @@
-#include <kernel.h>
+#include <descriptor_table.h>
+#include <libk.h>
 
 // struct	gdt_entry create_entry(uint32_t	base, uint32_t limit, uint8_t access, uint8_t flags)
 // {
@@ -18,7 +19,7 @@
 // 	return (ret);
 // }
 
-void encodeGdtEntry(uint8_t *target, uint32_t base, uint32_t limit, uint8_t type)
+static void encodeGdtEntry(uint8_t *target, uint32_t base, uint32_t limit, uint8_t type)
 {
     // Check the limit to make sure that it can be encoded
     if ((limit > 65536) && (limit & 0xFFF) != 0xFFF) {
@@ -47,9 +48,9 @@ void encodeGdtEntry(uint8_t *target, uint32_t base, uint32_t limit, uint8_t type
     target[5] = type;
 }
 
-void	load_gdt()
+static void	load_gdt()
 {
-	struct gdt_descriptor descriptor;
+	t_gdt_descriptor descriptor;
 	uint8_t	*gdt;
 
 	gdt = (uint8_t*)0x00000800;
@@ -61,4 +62,9 @@ void	load_gdt()
 	encodeGdtEntry(gdt + 16, 0x00000000, 0xffffffff, 0x92);
 
 	setGdt(descriptor.base, descriptor.limit);
+}
+
+void	load_dts()
+{
+	load_gdt();
 }
