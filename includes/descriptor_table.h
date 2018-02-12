@@ -20,7 +20,7 @@ struct gdt_entry
    uint8_t  base_high;
 } __attribute__((packed));
 
-void	load_dts(); // Load descriptor_tables
+void	load_dts(struct	gdt_ptr *descriptor); // Load descriptor_tables
 
 extern "C"
 {

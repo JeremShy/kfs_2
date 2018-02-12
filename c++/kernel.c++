@@ -6,7 +6,8 @@ TerminalManager termManager;
 
 extern "C" void kernel_main(void)
 {
-	load_gdt();
+	struct	gdt_ptr gdt_descriptor;
+	load_dts(&gdt_descriptor); // Load descriptor tables
 	putstr_color("Hello, kernel World!\nHow are you ?\n", VGA_COLOR_CYAN);
 
 	while (1)
