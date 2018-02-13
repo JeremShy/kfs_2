@@ -45,5 +45,4 @@ public:
 	void	moveCursorUp();
 	void	moveCursorDown();
 };
-
 #endif

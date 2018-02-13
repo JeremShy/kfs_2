@@ -81,8 +81,8 @@ static void	load_gdt(struct gdt_ptr *descriptor)
 	// encodeGdtEntry(gdt + 16, 0x00000000, 0xffffffff, 0x92);
 
 	gdt_set_gate(gdt + 0, 0, 0, 0);                // Null segment
-    gdt_set_gate(gdt + 1, 0x04000000, 0x03ffffff, 0x9A); // Code segment
-    gdt_set_gate(gdt + 2, 0x08000000, 0x03ffffff, 0x92); // Data segment
+    gdt_set_gate(gdt + 1, 0x00000000, 0x03ffffff, 0x9A); // Code segment
+    gdt_set_gate(gdt + 2, 0x00000000, 0x08ffffff, 0x92); // Data segment
     gdt_set_gate(gdt + 3, 0x0c000000, 0x03ffffff, 0xFA); // User mode code segment
     gdt_set_gate(gdt + 4, 0x10000000, 0x03ffffff, 0xF2); // User mode data segment
 
