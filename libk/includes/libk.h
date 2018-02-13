@@ -7,6 +7,7 @@
 # include <Cursor.h>
 # include <KeyComb.h>
 # include <TerminalManager.h>
+# include <Gdt.h>
 
 // Thank you, GCC, that's nice.
 typedef __builtin_va_list va_list;

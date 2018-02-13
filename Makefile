@@ -2,7 +2,7 @@ C++_SRC_NAME = kernel.cpp \
 				Terminal.cpp \
 				Cursor.cpp \
 				TerminalManager.cpp \
-				gdt.cpp
+				Gdt.cpp
 
 C++_OBJ_NAME = $(C++_SRC_NAME:.cpp=.o)
 
