@@ -27,6 +27,7 @@ doesn't make sense to return from this function as the bootloader is gone.
 .type _start, @function
 _start:
 	mov $stack_top, %esp
+	push %ebx
 	call _init
 	call kernel_main
 

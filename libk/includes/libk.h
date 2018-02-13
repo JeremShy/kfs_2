@@ -17,10 +17,12 @@ typedef __builtin_va_list va_list;
 extern TerminalManager termManager;
 
 size_t strlen(const char* str);
-void putstr(const char* data);
-void putstr_color(const char *data, uint8_t color);
-void putnbr(int c);
-int	putchar(int c);
+
+void	putstr(const char* data);
+void	putstr_color(const char *data, uint8_t color);
+void	putnbr(int c);
+int		putchar(int c);
+void	putnbr_base(unsigned int nbr, uint8_t base);
 
 char getScancode();
 KeyComb getKeyComb_down();

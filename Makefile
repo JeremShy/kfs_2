@@ -1,10 +1,10 @@
-C++_SRC_NAME = kernel.c++ \
-				Terminal.c++ \
-				Cursor.c++ \
-				TerminalManager.c++ \
-				gdt.c++
+C++_SRC_NAME = kernel.cpp \
+				Terminal.cpp \
+				Cursor.cpp \
+				TerminalManager.cpp \
+				gdt.cpp
 
-C++_OBJ_NAME = $(C++_SRC_NAME:.c++=.o)
+C++_OBJ_NAME = $(C++_SRC_NAME:.cpp=.o)
 
 ASM_SRC_NAME = boot.s \
 				setGdt.s
@@ -14,10 +14,10 @@ C++ = i686-elf-g++
 ASM = i686-elf-as
 LD = i686-elf-gcc -T linker.ld
 
-C++_SRC_PATH = ./c++/
+C++_SRC_PATH = ./cpp/
 ASM_SRC_PATH = ./asm/
 
-C++_OBJ_PATH = ./objc++/
+C++_OBJ_PATH = ./objcpp/
 ASM_OBJ_PATH = ./objasm/
 
 PRENAME = jcamhi_kernel
@@ -63,7 +63,7 @@ $(NAME) : $(INTERNAL_OBJS) libk.a
 lib:
 	@$(MAKE) --no-print-directory -C libk
 
-$(C++_OBJ_PATH)%.o: $(C++_SRC_PATH)%.c++
+$(C++_OBJ_PATH)%.o: $(C++_SRC_PATH)%.cpp
 	@/bin/echo -e '$(ccred)'kernel'$(ccend)':	'$(ccgreen)'[C]'$(ccend)': $<
 	@/bin/mkdir -p $(C++_OBJ_PATH) >&- 2>&-
 	@$(C++) $(C++_FLAGS) $(INCLUDE_FLAGS) -c $< -o $@

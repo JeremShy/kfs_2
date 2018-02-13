@@ -1,17 +1,22 @@
 #include <libk.h>
 #include <stdarg.h>
 #include <descriptor_table.h>
+#include <multiboot.h>
 
 TerminalManager termManager;
 
-extern "C" void kernel_main(void)
+extern "C" void kernel_main(struct multiboot_info *infos)
 {
 	struct	gdt_ptr gdt_descriptor;
-	load_dts(&gdt_descriptor); // Load descriptor tables
-	asm("   movw $0x18, %ax \n \
-	        movw %ax, %ss \n \
-	        movl $0x20000, %esp");
+		load_dts(&gdt_descriptor); // Load descriptor tables
+		asm("   movw $0x18, %ax \n \
+		        movw %ax, %ss \n \
+		        movl $0x20000, %esp");
+	int	a;
 	putstr_color("Hello, kernel World!\nHow are you ?\n", VGA_COLOR_CYAN);
+	printk("%p\n", infos);
+	printk("%p\n", &a);
+
 
 	while (1)
 	{

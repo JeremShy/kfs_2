@@ -1,28 +1,29 @@
-C++_SRC_NAME = putstr.c++ \
-				strlen.c++ \
-				putstr_color.c++ \
-				getKeyComb_down.c++ \
-				putchar.c++ \
-				putnbr.c++ \
-				printk.c++ \
-				KeyComb.c++ \
-				memcpy.c++ \
-				volatile_memcpy.c++ \
-				moveCursor.c++
+C++_SRC_NAME = putstr.cpp \
+				strlen.cpp \
+				putstr_color.cpp \
+				getKeyComb_down.cpp \
+				putchar.cpp \
+				putnbr.cpp \
+				printk.cpp \
+				KeyComb.cpp \
+				memcpy.cpp \
+				volatile_memcpy.cpp \
+				moveCursor.cpp \
+				putnbr_base.cpp
 
 ASM_SRC_NAME =
 
 ASM_OBJ_NAME = $(ASM_SRC_NAME:.s=.o)
-C++_OBJ_NAME = $(C++_SRC_NAME:.c++=.o)
+C++_OBJ_NAME = $(C++_SRC_NAME:.cpp=.o)
 
 C++ = i686-elf-g++
 ASM = i686-elf-as
 LD = i686-elf-gcc -T linker.ld
 
-C++_SRC_PATH = ./c++/
+C++_SRC_PATH = ./cpp/
 ASM_SRC_PATH = ./asm/
 
-C++_OBJ_PATH = ./objc++/
+C++_OBJ_PATH = ./objcpp/
 ASM_OBJ_PATH = ./objasm/
 
 NAME = ../libk.a
@@ -51,7 +52,7 @@ $(NAME): $(OBJ)
 	@ar r $(NAME) $^ >&- 2>&-
 	@/bin/echo -e '$(ccred)'libk'$(ccend)': Compiled.'\n'
 
-$(C++_OBJ_PATH)%.o: $(C++_SRC_PATH)%.c++
+$(C++_OBJ_PATH)%.o: $(C++_SRC_PATH)%.cpp
 	@/bin/mkdir -p $(C++_OBJ_PATH) >&- 2>&-
 	@$(C++) $(C++_FLAGS) $(INCLUDE_FLAGS) -c $< -o $@
 	@/bin/echo -e '$(ccred)'libk'$(ccend)':'\t''$(ccgreen)'[C]'$(ccend)' : $<

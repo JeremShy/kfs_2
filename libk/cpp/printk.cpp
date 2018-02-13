@@ -13,8 +13,15 @@ static void	handle_conv(va_list & list, char c)
 		case 's':
 			putstr(va_arg(list, const char *));
 			break;
+		case 'p':
+			putstr("0x");
+			putnbr_base(va_arg(list, unsigned int), 16); //this two lines are useless..
+			break;
+		case 'x':
+			putnbr_base(va_arg(list, unsigned int), 16);
+			break;
 		default:
-			putchar(c);
+			putchar ('c');
 			break;
 	}
 }
