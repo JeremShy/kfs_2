@@ -26,7 +26,7 @@ static void	handle_conv(va_list & list, char c)
 	}
 }
 
-void	printk(const char *s, ...)
+extern "C" void	printk(const char *s, ...)
 {
 	va_list list;
 	int	i;

@@ -11,7 +11,7 @@ C++_SRC_NAME = putstr.cpp \
 				moveCursor.cpp \
 				putnbr_base.cpp
 
-ASM_SRC_NAME =
+ASM_SRC_NAME = print_stack.s
 
 ASM_OBJ_NAME = $(ASM_SRC_NAME:.s=.o)
 C++_OBJ_NAME = $(C++_SRC_NAME:.cpp=.o)
@@ -49,7 +49,7 @@ ccend = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@ar r $(NAME) $^ >&- 2>&-
+	@ar r $(NAME) $^ >&-
 	@/bin/echo -e '$(ccred)'libk'$(ccend)': Compiled.'\n'
 
 $(C++_OBJ_PATH)%.o: $(C++_SRC_PATH)%.cpp

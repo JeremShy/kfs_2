@@ -33,8 +33,7 @@ void	moveCursorNext();
 void	moveCursorUp();
 void	moveCursorDown();
 
-
-void printk(const char *s, ...);
+extern "C" void	printk(const char *s, ...);
 
 void	memcpy(void *dest, const void *src, size_t n);
 void	volatile_memcpy(void volatile *dest, const void volatile *src, size_t n);
@@ -42,7 +41,8 @@ void	volatile_memcpy(void volatile *dest, const void volatile *src, size_t n);
 int		strcmp(const char *s1, const char *s2);
 
 // ASM functions
-// extern "C"
-// {
-// }
+extern "C"
+{
+	void	print_stack();
+}
 #endif

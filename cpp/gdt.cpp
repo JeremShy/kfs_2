@@ -41,4 +41,8 @@ Gdt::Gdt()
     gdt_set_gate(_gdt + 6, 0x00000000, 0, 0xF2); // User mode stack segment
 
 	setGdt(&_descriptor);
+	asm("   movw $0x18, %ax \n \
+	        movw %ax, %ss \n \
+	        movl $0x20000, %esp");
+	print_stack();
 }

@@ -8,13 +8,9 @@ TerminalManager termManager;
 extern "C" void kernel_main(struct multiboot_info *infos)
 {
 	Gdt gdt = Gdt();
-	asm("   movw $0x18, %ax \n \
-	        movw %ax, %ss \n \
-	        movl $0x20000, %esp");
-	int	a;
+	// print_stack();
 	putstr_color("Hello, kernel World!\nHow are you ?\n", VGA_COLOR_CYAN);
 	printk("%p\n", infos);
-	printk("%p\n", &a);
 
 
 	while (1)

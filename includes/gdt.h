@@ -9,6 +9,8 @@ struct gdt_ptr
 }
 __attribute__((packed));
 
+extern uint32_t	stack_bottom;
+
 struct gdt_entry
 {
    uint16_t limit_low;
