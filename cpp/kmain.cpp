@@ -10,10 +10,9 @@ Kernel _kernel;
 
 void kernel_main(struct multiboot_info *infos)
 {
-	int	a;
+	char buf[20] = "aaaaaaaaaaaaaaaaaaa";
 	print_stack();
 	putstr_color("Hello, kernel World!\nHow are you ?\n", VGA_COLOR_CYAN);
-
 
 	while (1)
 	{
