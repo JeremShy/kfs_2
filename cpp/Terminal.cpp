@@ -1,7 +1,7 @@
 #include <Terminal.h>
 #include <libk.h>
 
-Terminal::Terminal(void) : _row(0), _column(0), _color(vga_entry_color(VGA_COLOR_LIGHT_GREY, VGA_COLOR_BLACK)), _buffer((uint16_t*) 0xB8000), _cursorUpdate(true), _enabled(false)
+Terminal::Terminal(void) : _row(0), _column(0), _color(vga_entry_color(VGA_COLOR_LIGHT_GREY, VGA_COLOR_BLACK)), _buffer((uint16_t*) 0xB8000), _cursorUpdate(true), _enabled(false), _disableCursorUpdateOverride(false)
 {
 	for (size_t y = 0; y < VGA_HEIGHT; y++) {
 		for (size_t x = 0; x < VGA_WIDTH; x++) {
@@ -29,8 +29,11 @@ void Terminal::putEntryAt(char c, uint8_t color, size_t x, size_t y)
 
 void	Terminal::enableCursorUpdate()
 {
-	_cursorUpdate = true;
-	_cursor.moveCursorTo(_column, _row);
+	if (!_disableCursorUpdateOverride)
+	{
+		_cursorUpdate = true;
+		_cursor.moveCursorTo(_column, _row);
+	}
 }
 void	Terminal::disableCursorUpdate()
 {
@@ -115,6 +118,18 @@ void	Terminal::disableCursor()
 void	Terminal::enableCursor(uint8_t startLine, uint8_t endLine)
 {
 	_cursor.enable(startLine, endLine);
+}
+
+void	Terminal::forceEnableCursorUpdate()
+{
+	_disableCursorUpdateOverride = false;
+	enableCursorUpdate();
+}
+
+void	Terminal::forceDisableCursorUpdate()
+{
+	_disableCursorUpdateOverride = true;
+	disableCursorUpdate();
 }
 
 void	Terminal::enable()

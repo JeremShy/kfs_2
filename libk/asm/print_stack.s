@@ -23,12 +23,12 @@ print_stack:
 	push (%eax)
 	push %eax
 
-	lea .msg, %eax
-	push %eax
+//	lea .msg, %eax
+//	push %eax
 
-	call printk // printk(msg, addr, *addr)
+	call print_memory_line // printk(msg, addr, *addr)
 
-	pop %eax
+//	pop %eax
 	pop %eax // eax = printed addr
 	mov %eax, %ebx
 	pop %eax

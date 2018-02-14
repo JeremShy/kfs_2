@@ -10,6 +10,8 @@ private:
 	Gdt *_gdt;
 public:
 	Kernel();
+	void	halt();
+	void	reboot();
 };
 
 extern Kernel _kernel;

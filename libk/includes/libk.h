@@ -1,8 +1,9 @@
 #ifndef LIBK_H
 # define LIBK_H
 
-# include <terminal.h>
+# include <stddef.h>
 # include <types.h>
+# include <terminal.h>
 # include <inline.h>
 # include <Cursor.h>
 # include <KeyComb.h>
@@ -35,8 +36,14 @@ void	moveCursorDown();
 
 extern "C" void	printk(const char *s, ...);
 
-void	memcpy(void *dest, const void *src, size_t n);
+void	*memcpy(void *dest, const void *src, size_t n);
+void	*memset(void *dest, int c, size_t n);
+
+char	*appendChar(char *buffer, size_t size, char c);
+
 void	volatile_memcpy(void volatile *dest, const void volatile *src, size_t n);
+
+uint8_t	isprint(char c);
 
 int		strcmp(const char *s1, const char *s2);
 
@@ -44,5 +51,6 @@ int		strcmp(const char *s1, const char *s2);
 extern "C"
 {
 	void	print_stack();
+	void	print_memory_line(void *addr);
 }
 #endif

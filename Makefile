@@ -4,7 +4,9 @@ C++_SRC_NAME = kmain.cpp \
 				TerminalManager.cpp \
 				Gdt.cpp \
 				Kernel.cpp \
-				init.cpp
+				init.cpp \
+				Shell.cpp
+				
 
 C++_OBJ_NAME = $(C++_SRC_NAME:.cpp=.o)
 

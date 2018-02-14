@@ -16,6 +16,7 @@ private:
 	Cursor _cursor;
 	bool	_cursorUpdate;
 	bool	_enabled;
+	bool	_disableCursorUpdateOverride;
 	uint16_t	_hiddenBuffer[VGA_WIDTH * VGA_HEIGHT];
 
 	void putEntryAt(char c, uint8_t color, size_t x, size_t y);
@@ -36,6 +37,9 @@ public:
 
 	void	enableCursorUpdate();
 	void	disableCursorUpdate();
+
+	void	forceEnableCursorUpdate();
+	void	forceDisableCursorUpdate();
 
 	void	enable();
 	void	disable();

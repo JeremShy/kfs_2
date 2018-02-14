@@ -1,6 +1,6 @@
 #include <libk.h>
 
-void	memcpy(void *dest, const void *src, size_t n)
+void	*memcpy(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
@@ -10,4 +10,5 @@ void	memcpy(void *dest, const void *src, size_t n)
 		((char*)dest)[i] = ((const char*)src)[i];
 		i++;
 	}
+	return (dest);
 }

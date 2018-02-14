@@ -10,6 +10,11 @@ C++_SRC_NAME = putstr.cpp \
 				volatile_memcpy.cpp \
 				moveCursor.cpp \
 				putnbr_base.cpp \
+				print_memory_line.cpp \
+				isprint.cpp \
+				appendChar.cpp \
+				memset.cpp \
+				strcmp.cpp
 
 ASM_SRC_NAME = print_stack.s
 
