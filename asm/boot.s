@@ -33,7 +33,7 @@ _start:
 	mov $stack_top, %esp
 	push %ebx
 	call _init
-	call kernel_main
+	call kernel_init
 
 	cli
 1:	hlt

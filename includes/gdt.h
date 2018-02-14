@@ -34,5 +34,10 @@ public:
 	Gdt();
 };
 
+void	initGdt();
+void kernel_main(struct multiboot_info *infos);
+
+
+extern Gdt g_gdt;
 
 #endif

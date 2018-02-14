@@ -8,7 +8,7 @@ print_stack:
 	mov $0, %esi
 
 .debut:
-	mov %ss:10, %eax
+	mov %esp, %eax
 	push %eax
 
 	lea .msg, %eax

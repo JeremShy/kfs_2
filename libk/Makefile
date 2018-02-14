@@ -9,7 +9,7 @@ C++_SRC_NAME = putstr.cpp \
 				memcpy.cpp \
 				volatile_memcpy.cpp \
 				moveCursor.cpp \
-				putnbr_base.cpp
+				putnbr_base.cpp \
 
 ASM_SRC_NAME = print_stack.s
 
