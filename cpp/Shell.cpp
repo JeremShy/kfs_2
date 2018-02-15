@@ -3,20 +3,32 @@
 #include <Shell.h>
 #include <Kernel.h>
 
-void	Shell::exec_buffer()
+void	Shell::execBuffer()
 {
 	if (strcmp(_buffer, "print_stack") == 0)
 	{
 		print_stack();
 	}
-	else if (strcmp(_buffer, "halt") == 0)
-	{
-		_kernel.halt();
-	}
+	// else if (strcmp(_buffer, "halt") == 0)
+	// {
+	// 	_kernel.halt();
+	// }
 	else if (strcmp(_buffer, "reboot") == 0)
 	{
 		_kernel.reboot();
 	}
+}
+
+void	Shell::deleteActualChar()
+{
+	char	*toDelete = _actualChar - 1;
+
+	while (*toDelete != '\0')
+	{
+		*toDelete = *(toDelete + 1);
+		toDelete++;
+	}
+	moveCursorPrec();
 }
 
 void Shell::start()
@@ -24,18 +36,31 @@ void Shell::start()
 	memset(_buffer, 255, 0);
 	memcpy(_prompt, "# ", 3);
 	putstr(_prompt);
+	_actualChar = _buffer;
 	while (1)
 	{
 		KeyComb comb = getKeyComb_down();
 		if (comb.isAscii())
 		{
-			putchar(comb.getAscii());
+			if (isprint(comb.getAscii()))
+				putchar(comb.getAscii());
+			else if (comb.getAscii() == 8)
+			{
+				if (_actualChar != _buffer)
+				{
+					deleteActualChar();
+				}
+			}
 			if (comb.getAscii() != '\n')
+			{
 				appendChar(_buffer, 255, comb.getAscii());
+				_actualChar++;
+			}
 			else
 			{
-				this->exec_buffer();
+				this->execBuffer();
 				memset(_buffer, 0, 255);
+				_actualChar = _buffer;
 				putstr(_prompt);
 			}
 		}
