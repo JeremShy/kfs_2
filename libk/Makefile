@@ -10,7 +10,8 @@ C++_SRC_NAME = strlen.cpp \
 				isprint.cpp \
 				appendChar.cpp \
 				memset.cpp \
-				strcmp.cpp
+				strcmp.cpp \
+				print_status.cpp
 
 ASM_SRC_NAME = print_stack.s
 

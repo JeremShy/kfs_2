@@ -1,6 +1,6 @@
 #include <types.h>
 
-uint8_t	isprint(char c)
+uint8_t	isprint(const char c)
 {
 	if ((c >= 'a' && c <= 'z') ||
 		(c >= 'A' && c <= 'Z') ||

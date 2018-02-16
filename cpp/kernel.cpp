@@ -17,6 +17,11 @@ void	Kernel::reboot()
 	outb(0x64, 0xFE);
 }
 
+void	Kernel::init()
+{
+	print_status("First part of kernel", VGA_COLOR_GREEN, "OK");
+}
+
 Kernel::Kernel() : _gdt(&__gdt), io(&__io)
 {
 }

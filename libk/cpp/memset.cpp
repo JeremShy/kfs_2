@@ -1,6 +1,6 @@
 #include <libk.h>
 
-void	*memset(void *s, int c, size_t n)
+void	*memset(void *s, const int c, const size_t n)
 {
 	size_t	i;
 

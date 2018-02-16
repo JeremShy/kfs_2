@@ -22,14 +22,16 @@ void	putnbr(int c);
 void	putnbr_base(unsigned int nbr, uint8_t base);
 
 extern "C" void	printk(const char *s, ...);
+void	print_status(const char *composant, uint8_t color, const char *status);
+
 
 void	*memcpy(void *dest, const void *src, size_t n);
 void	volatile_memcpy(void volatile *dest, const void volatile *src, size_t n);
-void	*memset(void *dest, int c, size_t n);
+void	*memset(void *dest, const int c, const size_t n);
 
-char	*appendChar(char *buffer, size_t size, char c);
+char	*appendChar(char *buffer, const size_t size, const char c);
 
-uint8_t	isprint(char c);
+uint8_t	isprint(const char c);
 
 int		strcmp(const char *s1, const char *s2);
 
@@ -37,6 +39,6 @@ int		strcmp(const char *s1, const char *s2);
 extern "C"
 {
 	void	print_stack();
-	void	print_memory_line(void *addr);
+	void	print_memory_line(const void *addr);
 }
 #endif

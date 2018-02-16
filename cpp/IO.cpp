@@ -14,6 +14,7 @@ IO::IO()
 		}
 	}
 	_enabledTerminal->enable();
+	print_status("IO", VGA_COLOR_GREEN, "OK");
 }
 
 void IO::_switchTerminal(int nbr)
@@ -37,7 +38,7 @@ void	IO::_putstr_color(const char *str, uint8_t color)
 	uint8_t oldcolor = _enabledTerminal->getColor();
 
 	_enabledTerminal->setColor(color);
-	putstr(str);
+	_putstr(str);
 	_enabledTerminal->setColor(oldcolor);
 }
 

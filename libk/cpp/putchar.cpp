@@ -1,6 +1,6 @@
 #include <libk.h>
 
-int	putchar(int c)
+int	putchar(const int c)
 {
 	__io.putchar(c);
 	return (c);

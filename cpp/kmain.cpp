@@ -7,14 +7,15 @@
 
 extern IO __io;
 
-IO __io;
-Gdt	__gdt;
-Kernel __kernel;
+Kernel	__kernel;
+IO		__io;
+Gdt		__gdt;
 
 void kernel_main(struct multiboot_info *infos)
 {
-	IO::putstr_color("Hello, kernel World!\nHow are you ?\n", VGA_COLOR_CYAN);
-	printk("coucou\n");
+	__kernel.init();
+	IO::putstr_color("Hello, kernel World ! How are you ?\n", VGA_COLOR_CYAN);
+	IO::putstr_color("coucou\n", VGA_COLOR_RED);
 	Shell shell;
 
 	shell.start();

@@ -1,6 +1,6 @@
 #include <libk.h>
 
-void	volatile_memcpy(void volatile *dest, const void volatile *src, size_t n)
+void	volatile_memcpy(void volatile *dest, const void volatile *src, const size_t n)
 {
 	size_t	i;
 

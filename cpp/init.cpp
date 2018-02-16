@@ -1,5 +1,6 @@
 #include <Gdt.h>
 #include <Kernel.h>
+#include <libk.h>
 
 extern "C" void kernel_init(struct multiboot_info *infos)
 {

@@ -1,12 +1,12 @@
 #include <libk.h>
 
-extern "C" void	print_memory_line(void *addr)
+extern "C" void	print_memory_line(const void *addr)
 {
-	char	*pouet;
+	const char	*pouet;
 	printk("Addr : %p - Value : %p - ", addr, *(uint32_t*)addr);
 	int	i = 0;
 
-	pouet = (char*)addr;
+	pouet = (const char*)addr;
 	while (i < 4)
 	{
 		if (isprint(pouet[i]))

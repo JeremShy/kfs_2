@@ -14,6 +14,7 @@ private:
 public:
 	IO * const io;
 	Kernel();
+	void	init();
 	void	halt();
 	void	reboot();
 };
