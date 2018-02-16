@@ -5,13 +5,16 @@
 #include <Kernel.h>
 #include <Shell.h>
 
-TerminalManager termManager;
-Gdt	g_gdt;
-Kernel _kernel;
+extern IO __io;
+
+IO __io;
+Gdt	__gdt;
+Kernel __kernel;
 
 void kernel_main(struct multiboot_info *infos)
 {
-	putstr_color("Hello, kernel World!\nHow are you ?\n", VGA_COLOR_CYAN);
+	IO::putstr_color("Hello, kernel World!\nHow are you ?\n", VGA_COLOR_CYAN);
+	printk("coucou\n");
 	Shell shell;
 
 	shell.start();

@@ -1,5 +1,6 @@
 #include <libk.h>
 
+
 static	int		ft_pow(int nb, int pow)
 {
 	if (pow == 0)
@@ -12,7 +13,7 @@ static	void	ft_printing(int taille, int c)
 {
 	while (taille >= 0)
 	{
-		putchar((char)(c / (ft_pow(10, taille)) + (int)'0'));
+		IO::putchar((char)(c / (ft_pow(10, taille)) + (int)'0'));
 		c %= ft_pow(10, taille);
 		taille--;
 	}
@@ -24,15 +25,15 @@ void			putnbr(int c)
 	int	tmp;
 
 	if (c == 0)
-		putchar('0');
+		IO::putchar('0');
 	if (c == -2147483648)
 	{
-		putstr("-2147483648");
+		IO::putstr("-2147483648");
 		return ;
 	}
 	if (c < 0)
 	{
-		putchar('-');
+		IO::putchar('-');
 		c = c * -1;
 	}
 	tmp = c;

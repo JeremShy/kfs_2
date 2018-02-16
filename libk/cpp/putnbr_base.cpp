@@ -21,5 +21,5 @@ void	putnbr_base(unsigned int nbr, uint8_t base)
 		j++;
 	}
 	buffer[count] = '\0';
-	putstr(buffer);
+	IO::putstr(buffer);
 }

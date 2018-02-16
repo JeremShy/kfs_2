@@ -2,6 +2,6 @@
 
 int	putchar(int c)
 {
-	termManager.getActualTerm()->putchar(c);
+	__io.putchar(c);
 	return (c);
 }

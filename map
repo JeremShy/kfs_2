@@ -1,0 +1,15 @@
+IO Class:
+	putstr()->calls Terminal::putstr
+	putchar()->calls Terminal::putchar
+	KeyComb	getKeyComb_down()
+	changeTerminal(int index)
+	Terminal tab[3]
+	// etat du curseur..
+
+	Terminal:
+		buffer[BUFFER]
+		size_t row;
+		size_t column;
+		uint8_t	color;
+		putstr(char *str)
+		putchar(char c)

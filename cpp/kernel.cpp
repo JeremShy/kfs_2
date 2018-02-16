@@ -1,6 +1,8 @@
 #include <Kernel.h>
 #include <libk.h>
 
+extern IO	__io;
+
 void	Kernel::halt()
 {
 	printk("stopping kernel...\n");
@@ -15,7 +17,6 @@ void	Kernel::reboot()
 	outb(0x64, 0xFE);
 }
 
-Kernel::Kernel()
+Kernel::Kernel() : _gdt(&__gdt), io(&__io)
 {
-	this->_gdt = &g_gdt;
 }

@@ -7,7 +7,7 @@
 # include <inline.h>
 # include <Cursor.h>
 # include <KeyComb.h>
-# include <TerminalManager.h>
+# include <IO.h>
 # include <Gdt.h>
 
 // Thank you, GCC, that's nice.
@@ -16,32 +16,18 @@ typedef __builtin_va_list va_list;
 # define va_end __builtin_va_end
 # define va_arg __builtin_va_arg
 
-extern TerminalManager termManager;
-
 size_t strlen(const char* str);
 
-void	putstr(const char* data);
-void	putstr_color(const char *data, uint8_t color);
 void	putnbr(int c);
-int		putchar(int c);
 void	putnbr_base(unsigned int nbr, uint8_t base);
-
-char getScancode();
-KeyComb getKeyComb_down();
-
-void	moveCursorPrec();
-void	moveCursorNext();
-void	moveCursorUp();
-void	moveCursorDown();
 
 extern "C" void	printk(const char *s, ...);
 
 void	*memcpy(void *dest, const void *src, size_t n);
+void	volatile_memcpy(void volatile *dest, const void volatile *src, size_t n);
 void	*memset(void *dest, int c, size_t n);
 
 char	*appendChar(char *buffer, size_t size, char c);
-
-void	volatile_memcpy(void volatile *dest, const void volatile *src, size_t n);
 
 uint8_t	isprint(char c);
 

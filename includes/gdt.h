@@ -38,6 +38,6 @@ void	initGdt();
 void kernel_main(struct multiboot_info *infos);
 
 
-extern Gdt g_gdt;
+extern Gdt __gdt;
 
 #endif

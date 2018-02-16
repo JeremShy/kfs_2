@@ -95,10 +95,11 @@ void	Terminal::scrollUp()
 		y++;
 	}
 	x = 0;
+	uint8_t	color = vga_entry(' ', _color);
 	while (x < VGA_WIDTH)
 	{
 		index = y * VGA_WIDTH + x;
-		_buffer[index] = vga_entry(' ', _color);
+		_buffer[index] = color;
 		x++;
 	}
 }

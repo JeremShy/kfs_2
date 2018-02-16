@@ -2,5 +2,5 @@
 
 void putstr(const char* data)
 {
-	termManager.getActualTerm()->write(data, strlen(data));
+	__io.putstr(data);
 }

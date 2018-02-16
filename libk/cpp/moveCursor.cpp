@@ -1,21 +1,21 @@
 #include <libk.h>
 
-void	moveCursorPrec()
+void	IO::moveCursorPrec()
 {
-	termManager.getActualTerm()->moveCursorPrec();
+	IO::moveCursorPrec();
 }
 
-void	moveCursorNext()
+void	IO::moveCursorNext()
 {
-	termManager.getActualTerm()->moveCursorNext();
+	IO::moveCursorNext();
 }
 
-void	moveCursorUp()
+void	IO::moveCursorUp()
 {
-	termManager.getActualTerm()->moveCursorUp();
+	IO::moveCursorUp();
 }
 
-void	moveCursorDown()
+void	IO::moveCursorDown()
 {
-	termManager.getActualTerm()->moveCursorDown();
+	IO::moveCursorDown();
 }

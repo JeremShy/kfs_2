@@ -1,5 +1,5 @@
 #include <libk.h>
-#include <TerminalManager.h>
+#include <IO.h>
 #include <Shell.h>
 #include <Kernel.h>
 
@@ -11,11 +11,11 @@ void	Shell::execBuffer()
 	}
 	// else if (strcmp(_buffer, "halt") == 0)
 	// {
-	// 	_kernel.halt();
+	// 	__kernel.halt();
 	// }
 	else if (strcmp(_buffer, "reboot") == 0)
 	{
-		_kernel.reboot();
+		__kernel.reboot();
 	}
 }
 
@@ -28,28 +28,28 @@ void	Shell::deleteActualChar()
 		*toDelete = *(toDelete + 1);
 		toDelete++;
 	}
-	moveCursorPrec();
+	IO::moveCursorPrec();
 }
 
 void Shell::start()
 {
 	memset(_buffer, 255, 0);
 	memcpy(_prompt, "# ", 3);
-	putstr(_prompt);
+	IO::putstr(_prompt);
 	_actualChar = _buffer;
 	while (1)
 	{
-		KeyComb comb = getKeyComb_down();
+		KeyComb comb = IO::getKeyComb_down();
 		if (comb.isAscii())
 		{
-			if (isprint(comb.getAscii()))
-				putchar(comb.getAscii());
+			if (isprint(comb.getAscii()) || comb.getAscii() == '\n')
+				IO::putchar(comb.getAscii());
 			else if (comb.getAscii() == 8)
 			{
-				if (_actualChar != _buffer)
-				{
-					deleteActualChar();
-				}
+				// if (_actualChar != _buffer)
+				// {
+				// 	deleteActualChar();
+				// }
 			}
 			if (comb.getAscii() != '\n')
 			{
@@ -61,25 +61,25 @@ void Shell::start()
 				this->execBuffer();
 				memset(_buffer, 0, 255);
 				_actualChar = _buffer;
-				putstr(_prompt);
+				IO::putstr(_prompt);
 			}
 		}
 		else
 		{
 			if (comb.getCode() == 16 && comb.isCtrlPressed())
-				termManager.switchTerminal(0);
+				IO::switchTerminal(0);
 			else if (comb.getCode() == 17 && comb.isCtrlPressed())
-				termManager.switchTerminal(1);
+				IO::switchTerminal(1);
 			else if (comb.getCode() == 18 && comb.isCtrlPressed())
-				termManager.switchTerminal(2);
+				IO::switchTerminal(2);
 			else if (comb.getCode() == 75) // Left
-				moveCursorPrec();
+				IO::moveCursorPrec();
 			else if (comb.getCode() == 77) // Right
-				moveCursorNext();
+				IO::moveCursorNext();
 			else if (comb.getCode() == 72) // Up
-				moveCursorUp();
+				IO::moveCursorUp();
 			else if (comb.getCode() == 80) // Down
-				moveCursorDown();
+				IO::moveCursorDown();
 		}
 	}
 }

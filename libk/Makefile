@@ -1,8 +1,4 @@
-C++_SRC_NAME = putstr.cpp \
-				strlen.cpp \
-				putstr_color.cpp \
-				getKeyComb_down.cpp \
-				putchar.cpp \
+C++_SRC_NAME = strlen.cpp \
 				putnbr.cpp \
 				printk.cpp \
 				KeyComb.cpp \

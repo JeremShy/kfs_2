@@ -1,12 +1,12 @@
 C++_SRC_NAME = kmain.cpp \
 				Terminal.cpp \
 				Cursor.cpp \
-				TerminalManager.cpp \
+				IO.cpp \
 				Gdt.cpp \
 				Kernel.cpp \
 				init.cpp \
 				Shell.cpp
-				
+
 
 C++_OBJ_NAME = $(C++_SRC_NAME:.cpp=.o)
 

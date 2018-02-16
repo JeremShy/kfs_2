@@ -1,2 +1,3 @@
-write Kernel::halt()
-write the Shell class. Need to rethink about many things.
+kfs2 : bonus
+	write Kernel::halt()
+	write the Shell class. Need to rethink about many things.
