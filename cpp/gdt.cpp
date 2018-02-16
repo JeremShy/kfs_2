@@ -6,7 +6,7 @@ Gdt::Gdt()
 	_gdt = (struct gdt_entry*)0x00000800;
 	_descriptor.limit = (sizeof(struct gdt_entry) * 5) - 1;
 	_descriptor.base = 0x00000800;
-	print_status("GDT", VGA_COLOR_GREEN, "OK");
+	print_status("Global Descriptor Table", VGA_COLOR_GREEN, "OK");
 }
 
 static void	gdt_set_gate(struct gdt_entry* entry, uint32_t base, uint32_t limit, uint8_t access)

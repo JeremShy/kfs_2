@@ -14,7 +14,7 @@ IO::IO()
 		}
 	}
 	_enabledTerminal->enable();
-	print_status("IO", VGA_COLOR_GREEN, "OK");
+	print_status("Input / Output", VGA_COLOR_GREEN, "OK");
 }
 
 void IO::_switchTerminal(int nbr)
