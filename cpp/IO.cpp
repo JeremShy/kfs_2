@@ -108,35 +108,35 @@ KeyComb IO::getKeyComb_down()
 
 void	IO::putstr(const char *str)
 {
-	__kernel.io->_putstr(str);
+	__kernel.io._putstr(str);
 }
 void	IO::putstr_color(const char *str, uint8_t color)
 {
-	__kernel.io->_putstr_color(str, color);
+	__kernel.io._putstr_color(str, color);
 }
 int	IO::putchar(int c)
 {
-	__kernel.io->_putchar(c);
+	__kernel.io._putchar(c);
 	return (c);
 }
 void	IO::moveCursorPrec()
 {
-	__kernel.io->_moveCursorPrec();
+	__kernel.io._moveCursorPrec();
 }
 void	IO::moveCursorNext()
 {
-	__kernel.io->_moveCursorNext();
+	__kernel.io._moveCursorNext();
 }
 void	IO::moveCursorUp()
 {
-	__kernel.io->_moveCursorUp();
+	__kernel.io._moveCursorUp();
 }
 void	IO::moveCursorDown()
 {
-	__kernel.io->_moveCursorDown();
+	__kernel.io._moveCursorDown();
 }
 
 void	IO::switchTerminal(int nterm)
 {
-	__kernel.io->_switchTerminal(nterm);
+	__kernel.io._switchTerminal(nterm);
 }

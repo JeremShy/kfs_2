@@ -5,11 +5,10 @@
 #include <Kernel.h>
 #include <Shell.h>
 
-extern IO __io;
+// extern IO __io;
 
 Kernel	__kernel;
-IO		__io;
-Gdt		__gdt;
+// IO		__io;
 
 void kernel_main(struct multiboot_info *infos)
 {

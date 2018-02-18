@@ -3,16 +3,20 @@
 
 # include <Gdt.h>
 # include <IO.h>
+# include <Memory.h>
 
 extern "C" void kernel_init(struct multiboot_info *infos);
 
 class IO;
 
 class Kernel {
-private:
-	Gdt * const _gdt;
 public:
-	IO * const io;
+	IO io;
+private:
+	Gdt const _gdt;
+	Memory _mem;
+
+public:
 	Kernel();
 	void	init();
 	void	halt();

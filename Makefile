@@ -5,7 +5,8 @@ C++_SRC_NAME = kmain.cpp \
 				Gdt.cpp \
 				Kernel.cpp \
 				init.cpp \
-				Shell.cpp
+				Shell.cpp \
+				Memory.cpp
 
 
 C++_OBJ_NAME = $(C++_SRC_NAME:.cpp=.o)

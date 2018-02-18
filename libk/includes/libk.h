@@ -21,11 +21,9 @@ size_t strlen(const char* str);
 void	putnbr(int c);
 void	putnbr_base(unsigned int nbr, uint8_t base);
 
-extern "C" void	printk(const char *s, ...);
 void	print_status(const char *composant, uint8_t color, const char *status);
 
 
-void	*memcpy(void *dest, const void *src, size_t n);
 void	volatile_memcpy(void volatile *dest, const void volatile *src, size_t n);
 void	*memset(void *dest, const int c, const size_t n);
 
@@ -40,5 +38,8 @@ extern "C"
 {
 	void	print_stack();
 	void	print_memory_line(const void *addr);
+	void	printk(const char *s, ...);
+	void	*memcpy(void *dest, const void *src, size_t n);
+
 }
 #endif

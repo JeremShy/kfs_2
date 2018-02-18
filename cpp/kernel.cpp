@@ -1,7 +1,7 @@
 #include <Kernel.h>
 #include <libk.h>
 
-extern IO	__io;
+// extern IO	__io;
 
 void	Kernel::halt()
 {
@@ -20,8 +20,9 @@ void	Kernel::reboot()
 void	Kernel::init()
 {
 	print_status("First part of kernel", VGA_COLOR_GREEN, "OK");
+	_mem.init();
 }
 
-Kernel::Kernel() : _gdt(&__gdt), io(&__io)
+Kernel::Kernel() : io(), _gdt(), _mem()
 {
 }
