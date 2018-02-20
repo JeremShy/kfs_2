@@ -1,6 +1,15 @@
-#ifndef MULTIBOOT_H
+#ifndef BOOT_H
+# define BOOTH_H
 
 # include <types.h>
+
+extern "C" void kernel_init(struct multiboot_info *infos, unsigned int magic);
+void kernel_main(struct multiboot_info *infos, unsigned int magic);
+
+#define MULTIBOOT_BOOTLOADER_MAGIC 0x2BADB002
+
+#define FLAG_MMAP_SET (1 << 6)
+#define FLAG_MEM_SET  (1 << 0)
 
 struct multiboot_aout_symbol_table
 {
@@ -97,5 +106,6 @@ struct multiboot_info
   };
 };
 typedef struct multiboot_info multiboot_info_t;
+
 
 #endif

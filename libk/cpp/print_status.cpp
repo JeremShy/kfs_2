@@ -8,11 +8,11 @@ void	print_status(const char *composant, const uint8_t color, const char *status
 	IO::putstr_color(" ]", VGA_COLOR_BLUE);
 
 	IO::putchar(' ');
-	if ((strlen(composant) + 4) - (strlen(status) + 1) > 50)
+	if ((strlen(composant) + 4) - (strlen(status) + 1) > 70)
 		IO::putchar('.');
 	else
 	{
-		for (size_t i = 0; i < 50 - (strlen(composant) + 4) - (strlen(status) + 1); i++)
+		for (size_t i = 0; i < 70 - (strlen(composant) + 4) - (strlen(status) + 1); i++)
 			IO::putchar('.');
 	}
 	IO::putstr_color(" ", color);

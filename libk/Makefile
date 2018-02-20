@@ -51,7 +51,7 @@ ccend = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@ar r $(NAME) $^ >&-
+	@ar r $(NAME) $^ >&- 2>&-
 	@/bin/echo -e '$(ccred)'libk'$(ccend)': Compiled.'\n'
 
 $(C++_OBJ_PATH)%.o: $(C++_SRC_PATH)%.cpp

@@ -5,8 +5,6 @@
 # include <IO.h>
 # include <Memory.h>
 
-extern "C" void kernel_init(struct multiboot_info *infos);
-
 class IO;
 
 class Kernel {
