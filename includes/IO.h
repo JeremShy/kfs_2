@@ -10,7 +10,7 @@
 class IO
 {
 private:
-	Terminal	_terms[NB_TERMS];
+	Terminal	_terms[NB_TERMS]; 
 	Terminal	*_enabledTerminal;
 
 	void	_putstr(const char *str);

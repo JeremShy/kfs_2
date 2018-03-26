@@ -3,7 +3,7 @@
 
 # include <stddef.h>
 # include <types.h>
-# include <terminal.h>
+# include <Terminal.h>
 # include <inline.h>
 # include <Cursor.h>
 # include <KeyComb.h>

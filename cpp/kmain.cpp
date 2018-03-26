@@ -19,7 +19,7 @@ void kernel_main(struct multiboot_info *infos, unsigned int magic)
 	printk("Infos : %x\n", infos);
 	Shell shell;
 
-	if ((infos->flags & FLAG_MEM_SET )!= 0)
+	if ((infos->flags & FLAG_MEM_SET) != 0)
 	{
 		printk("mem is set !\n");
 		printk("mem_lower = %x (= %d) and mem_upper = %x( = %d)\n", infos->mem_lower, infos->mem_lower, infos->mem_upper, infos->mem_upper);

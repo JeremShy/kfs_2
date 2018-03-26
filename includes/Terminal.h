@@ -7,7 +7,7 @@
 # define VGA_WIDTH 80
 # define VGA_HEIGHT 25
 
-class Terminal {
+class	Terminal {
 private:
 	size_t _row;
 	size_t _column;
