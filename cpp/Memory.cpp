@@ -7,5 +7,4 @@ void Memory::init()
 
 Memory::Memory()
 {
-	
 }

@@ -2,8 +2,8 @@ C++_SRC_NAME = kmain.cpp \
 				Terminal.cpp \
 				Cursor.cpp \
 				IO.cpp \
-				Gdt.cpp \
-				Kernel.cpp \
+				gdt.cpp \
+				kernel.cpp \
 				init.cpp \
 				Shell.cpp \
 				Memory.cpp

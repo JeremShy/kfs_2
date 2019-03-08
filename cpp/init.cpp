@@ -1,4 +1,4 @@
-#include <Gdt.h>
+#include <gdt.h>
 #include <Kernel.h>
 #include <libk.h>
 #include <boot.h>

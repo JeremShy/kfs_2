@@ -1,5 +1,5 @@
 #ifndef BOOT_H
-# define BOOTH_H
+# define BOOT_H
 
 # include <types.h>
 
@@ -49,8 +49,8 @@ struct multiboot_info
 
   union
   {
-	struct multiboot_aout_symbol_table aout_sym;
-	struct multiboot_elf_section_header_table elf_sec;
+    struct multiboot_aout_symbol_table aout_sym;
+    struct multiboot_elf_section_header_table elf_sec;
   } u;
 
   /* Memory Mapping buffer */
@@ -89,20 +89,20 @@ struct multiboot_info
   uint8_t framebuffer_type;
   union
   {
-	struct
-	{
-	  uint32_t framebuffer_palette_addr;
-	  uint16_t framebuffer_palette_num_colors;
-	};
-	struct
-	{
-	  uint8_t framebuffer_red_field_position;
-	  uint8_t framebuffer_red_mask_size;
-	  uint8_t framebuffer_green_field_position;
-	  uint8_t framebuffer_green_mask_size;
-	  uint8_t framebuffer_blue_field_position;
-	  uint8_t framebuffer_blue_mask_size;
-	};
+  	struct
+  	{
+  	  uint32_t framebuffer_palette_addr;
+  	  uint16_t framebuffer_palette_num_colors;
+  	};
+  	struct
+  	{
+  	  uint8_t framebuffer_red_field_position;
+  	  uint8_t framebuffer_red_mask_size;
+  	  uint8_t framebuffer_green_field_position;
+  	  uint8_t framebuffer_green_mask_size;
+  	  uint8_t framebuffer_blue_field_position;
+  	  uint8_t framebuffer_blue_mask_size;
+  	};
   };
 };
 typedef struct multiboot_info multiboot_info_t;

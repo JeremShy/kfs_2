@@ -1,11 +1,11 @@
 #include <libk.h>
-#include <Gdt.h>
+#include <gdt.h>
 
 Gdt::Gdt()
 {
-	_gdt = (struct gdt_entry*)0x00000800;
+	_gdt = (struct gdt_entry*)GDT_ADDRESS;
 	_descriptor.limit = (sizeof(struct gdt_entry) * 5) - 1;
-	_descriptor.base = 0x00000800;
+	_descriptor.base = GDT_ADDRESS;
 	print_status("Global Descriptor Table", VGA_COLOR_GREEN, "OK");
 }
 
@@ -34,9 +34,9 @@ void	initGdt()
 	struct gdt_ptr descriptor;
 	struct gdt_entry	*gdt;
 
-	gdt = (struct gdt_entry*)0x00000800;
+	gdt = (struct gdt_entry*)GDT_ADDRESS;
 	descriptor.limit = (sizeof(struct gdt_entry) * 5) - 1;
-	descriptor.base = 0x00000800;
+	descriptor.base = GDT_ADDRESS;
 
 	gdt_set_gate(gdt + 0, 0, 0, 0);               		 	// Null segment
     gdt_set_gate(gdt + 1, 0x00000000, 0xffffffff, 0x9A);	// Code segment

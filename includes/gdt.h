@@ -2,6 +2,8 @@
 # define GDT_H
 # include <types.h>
 
+# define GDT_ADDRESS 0x00000800
+
 struct gdt_ptr
 {
    uint16_t limit;
