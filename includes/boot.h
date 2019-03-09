@@ -19,6 +19,16 @@ struct multiboot_aout_symbol_table
   uint32_t reserved;
 };
 
+typedef struct multiboot_memory_map {
+  unsigned int size;
+  unsigned int base_addr_low,base_addr_high;
+// You can also use: unsigned long long int base_addr; if supported.
+  unsigned int length_low,length_high;
+// You can also use: unsigned long long int length; if supported.
+  unsigned int type;
+} multiboot_memory_map_t;
+ 
+
 /* The section header table for ELF. */
 struct multiboot_elf_section_header_table
 {
@@ -89,20 +99,20 @@ struct multiboot_info
   uint8_t framebuffer_type;
   union
   {
-  	struct
-  	{
-  	  uint32_t framebuffer_palette_addr;
-  	  uint16_t framebuffer_palette_num_colors;
-  	};
-  	struct
-  	{
-  	  uint8_t framebuffer_red_field_position;
-  	  uint8_t framebuffer_red_mask_size;
-  	  uint8_t framebuffer_green_field_position;
-  	  uint8_t framebuffer_green_mask_size;
-  	  uint8_t framebuffer_blue_field_position;
-  	  uint8_t framebuffer_blue_mask_size;
-  	};
+    struct
+    {
+      uint32_t framebuffer_palette_addr;
+      uint16_t framebuffer_palette_num_colors;
+    };
+    struct
+    {
+      uint8_t framebuffer_red_field_position;
+      uint8_t framebuffer_red_mask_size;
+      uint8_t framebuffer_green_field_position;
+      uint8_t framebuffer_green_mask_size;
+      uint8_t framebuffer_blue_field_position;
+      uint8_t framebuffer_blue_mask_size;
+    };
   };
 };
 typedef struct multiboot_info multiboot_info_t;

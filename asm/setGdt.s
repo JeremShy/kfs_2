@@ -11,6 +11,11 @@ setGdt:
    mov %ax, %gs
    mov $0x18, %ax
    mov %ax, %ss
+
+   mov %cr0, %eax
+   or 1, %eax
+   mov  %eax, %cr0 // Enable protected mode
+
    ljmp $0x08, $.flush
 
 

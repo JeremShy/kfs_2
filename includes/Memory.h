@@ -41,11 +41,3 @@ public:
 #endif
 
 
-
-/*
-	Fonctionnement pagination :
-		Registre cr3 : Addresse du Page Directory (PD)
-		PD : Tableau de 1024 * 32bit Page Directory Entry (PDE) Contennant l'adresse d'une Page Table (PT)
-		PT : Tableau de 1024 * 32bit Page Table Entry (PTE) contenant l'adresse des pages
-	Le kernel doit changer la valeur de cr3 lorsqu'il change de contexte (Par exemple d'application) pour que chaque appli ait un mapping de memoire virtuelle separee des autres.
-*/

@@ -18,12 +18,32 @@ void kernel_main(struct multiboot_info *infos, unsigned int magic)
 	printk("Magic : %x\n", magic);
 	printk("Infos : %x\n", infos);
 	Shell shell;
+	int	i;
 
 	if ((infos->flags & FLAG_MEM_SET) != 0)
 	{
 		printk("mem is set !\n");
 		printk("mem_lower = %x (= %d) and mem_upper = %x( = %d)\n", infos->mem_lower, infos->mem_lower, infos->mem_upper, infos->mem_upper);
-	}
+		multiboot_memory_map_t *mmap = (multiboot_memory_map_t*)infos->mmap_addr;
+		i = 0;
+		while ((uint32_t)mmap < infos->mmap_addr + infos->mmap_length)
+		{
+			uint64_t	baddr;
+			uint64_t	length;
 
+			baddr =  ((uint64_t)mmap->base_addr_high << 32) + mmap->base_addr_low;
+			length = ((uint64_t)mmap->length_high << 32)    + mmap->length_low;
+
+			printk(
+					"page %d : base_addr : %x, length : %x - base_addr + length : %x\n",
+					i,
+					(uint32_t)baddr,
+					(uint32_t)length,
+					(uint32_t)(baddr + length)
+				);
+			mmap = (multiboot_memory_map_t *)((uint32_t)mmap + mmap->size + sizeof(mmap->size));
+			i++;
+		}
+	}
 	shell.start();
 }
