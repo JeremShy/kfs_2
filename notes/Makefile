@@ -35,3 +35,9 @@ $(NAME): $(SRC)
 
 clean:
 		latexmk -CA
+
+fclean: clean
+	rm -rf $(NAME)
+
+re: fclean all
+

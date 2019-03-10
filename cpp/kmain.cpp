@@ -34,13 +34,13 @@ void kernel_main(struct multiboot_info *infos, unsigned int magic)
 			baddr =  ((uint64_t)mmap->base_addr_high << 32) + mmap->base_addr_low;
 			length = ((uint64_t)mmap->length_high << 32)    + mmap->length_low;
 
-			printk(
-					"page %d : base_addr : %x, length : %x - base_addr + length : %x\n",
-					i,
-					(uint32_t)baddr,
-					(uint32_t)length,
-					(uint32_t)(baddr + length)
-				);
+			// printk(
+			// 		"page %d : base_addr : %x, length : %x - base_addr + length : %x\n",
+			// 		i,
+			// 		(uint32_t)baddr,
+			// 		(uint32_t)length,
+			// 		(uint32_t)(baddr + length)
+			// 	);
 			mmap = (multiboot_memory_map_t *)((uint32_t)mmap + mmap->size + sizeof(mmap->size));
 			i++;
 		}

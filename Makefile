@@ -80,10 +80,12 @@ $(ASM_OBJ_PATH)%.o: $(ASM_SRC_PATH)%.s
 
 clean:
 	@$(MAKE) -C libk clean
+	@$(MAKE) -C notes clean
 	@rm -fv $(INTERNAL_OBJS)
 
 fclean: clean
 	@$(MAKE) -C libk fclean
+	@$(MAKE) -C notes fclean
 	@rm -fv $(BIN_NAME)
 	@rm -fv $(ISO_NAME)
 	@rm -rfv $(C++_OBJ_PATH)
@@ -95,4 +97,9 @@ test: all
 
 debug: all
 	kvm -m 256 -cdrom $(ISO_NAME) -curses -s -S
+
 re: fclean all
+
+doc:
+	@$(MAKE) -C notes
+	@/bin/echo -e '$(ccred)'documentation'$(ccend)':	'$(cccyan)'[LaTeX]'$(ccend)': 'OK'
