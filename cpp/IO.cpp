@@ -81,7 +81,7 @@ KeyComb IO::getKeyComb_down()
 	KeyComb ret;
 	unsigned char code;
 	int	ignore = 0;
-    do
+	do
 	{
 		ignore = 0;
 		code = IO::_getScancode();

@@ -1,7 +1,7 @@
 #ifndef KERNEL_H
 # define KERNEL_H
 
-# include <Gdt.h>
+# include <gdt.h>
 # include <IO.h>
 # include <Memory.h>
 

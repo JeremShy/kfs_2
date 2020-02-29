@@ -6,7 +6,7 @@ print_stack:
 	push %edi
 	push %esi
 
-	lea .hello, %eax
+	lea .stack_nl, %eax
 	push %eax
 	call printk
 	add %esp, 4
@@ -17,18 +17,15 @@ print_stack:
 .debut:
 	mov %edi, %ebx
 	mov $0x20000, %eax
+	int3
 	shl %ebx
 	shl %ebx
 	sub %ebx, %eax
-	push (%eax)
 	push %eax
-
-//	lea .msg, %eax
-//	push %eax
+	push %eax
 
 	call print_memory_line // printk(msg, addr, *addr)
 
-//	pop %eax
 	pop %eax // eax = printed addr
 	mov %eax, %ebx
 	pop %eax
@@ -48,5 +45,5 @@ print_stack:
 .msg:
 	.asciz "Addr : %p - Value : %p\n"
 
-.hello:
+.stack_nl:
 	.asciz "Stack : \n"

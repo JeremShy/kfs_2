@@ -30,26 +30,26 @@ void kernel_main(struct multiboot_info *infos, unsigned int magic)
 		uint64_t total_length;
 
 		total_length = 0;
-		while ((uint32_t)mmap < infos->mmap_addr + infos->mmap_length)
-		{
-			uint64_t	baddr;
-			uint64_t	length;
+		// while ((uint32_t)mmap < infos->mmap_addr + infos->mmap_length)
+		// {
+		// 	uint64_t	baddr;
+		// 	uint64_t	length;
 
-			baddr =  ((uint64_t)mmap->base_addr_high << 32) + mmap->base_addr_low;
-			length = ((uint64_t)mmap->length_high << 32)    + mmap->length_low;
+		// 	baddr =  ((uint64_t)mmap->base_addr_high << 32) + mmap->base_addr_low;
+		// 	length = ((uint64_t)mmap->length_high << 32)    + mmap->length_low;
 
-			printk(
-					"page %d : base_addr : %x, length : %x - base_addr + length : %x\n",
-					i,
-					(uint32_t)baddr,
-					(uint32_t)length,
-					(uint32_t)(baddr + length)
-				);
-			total_length += length;
-			mmap = (multiboot_memory_map_t *)((uint32_t)mmap + mmap->size + sizeof(mmap->size));
-			i++;
-		}
-		printk("total_length : %x\n", (uint32_t)total_length);
+		// 	printk(
+		// 			"page %d : base_addr : %x, length : %x - base_addr + length : %x\n",
+		// 			i,
+		// 			(uint32_t)baddr,
+		// 			(uint32_t)length,
+		// 			(uint32_t)(baddr + length)
+		// 		);
+		// 	total_length += length;
+		// 	mmap = (multiboot_memory_map_t *)((uint32_t)mmap + mmap->size + sizeof(mmap->size));
+		// 	i++;
+		// }
+		// printk("total_length : %x\n", (uint32_t)total_length);
 	}
 	shell.start();
 }

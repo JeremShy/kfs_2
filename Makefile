@@ -30,7 +30,16 @@ ISO_NAME = $(PRENAME).iso
 BIN_NAME = $(PRENAME).bin
 NAME = $(ISO_NAME)
 
-C++_FLAGS = -fno-builtin -fno-exceptions -fno-stack-protector -fno-rtti -nostdlib -nodefaultlibs -g -Wall -Wextra
+C++_FLAGS = -fno-builtin \
+			-fno-exceptions \
+			-fno-stack-protector \
+			-fno-rtti \
+			-nostdlib \
+			-nodefaultlibs \
+			-g \
+			-Wall \
+			-Wextra
+
 C++_SRC = $(addprefix $(C++_PATH),$(C++_SRC_NAME))
 ASM_SRC = $(addprefix $(ASM_PATH),$(ASM_SRC_NAME))
 

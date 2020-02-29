@@ -1,6 +1,6 @@
 #ifndef IO_H
-
 # define IO_H
+
 # include <Terminal.h>
 # include <types.h>
 # include <KeyComb.h>
